@@ -14,9 +14,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { businessesSelector } from "../../redux/selectors/BusinessSelectors";
 import * as businessActions from "../../redux/actions/BusinessActions";
 import { homeStyle } from "../../assets/css/style";
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      translation: {
+        Business: "Business",
+      },
+    },
+  },
+  lng: "en",
+  fallbackLng: "en",
+
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 const Index = () => {
   const classes = homeStyle();
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [item, setItem] = useState({});
@@ -56,7 +75,7 @@ const Index = () => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <h2>Busines</h2>
+        <h2>{t("Business")}</h2>
         <button
           className={classes.button}
           onClick={() => handleClickOpen(true, {})}
