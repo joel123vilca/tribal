@@ -78,7 +78,7 @@ const Index = () => {
         <h2>{t("Business")}</h2>
         <button
           className={classes.button}
-          onClick={() => handleClickOpen(true, {})}
+          onClick={() => handleClickOpen(false, {})}
         >
           Create Business
         </button>
